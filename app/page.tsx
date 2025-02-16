@@ -1,7 +1,6 @@
 'use client';
 import { randomNumberInRange } from '@/utils/helper';
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
 import { useEffect, useMemo, useState } from 'react';
 import background1 from '../assets/images/backgrounds/background1.jpg';
 import background10 from '../assets/images/backgrounds/background10.jpg';
