@@ -96,3 +96,31 @@ body {
 .geist {
   font-family: "Geist" !important;
 }
+
+.gradient-text {
+  background: linear-gradient(90deg, #3DBDB7 0%, #6B42D8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.gradient-bg {
+  background: linear-gradient(90deg, #3DBDB7 0%, #6B42D8 100%);
+}
+
+.nav-link {
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  color: rgba(255, 255, 255, 0.95);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.nav-link:hover {
+  background: linear-gradient(90deg, #3DBDB7 0%, #6B42D8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
