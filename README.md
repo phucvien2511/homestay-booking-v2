@@ -1,10 +1,10 @@
 # Homestay Booking
 
-A modern home-stay booking platform built with Next.js, TypeScript, and Tailwind CSS.
+A modern homestay booking platform built with Next.js, TypeScript, and Tailwind CSS.
 
 ## Features
 
-- 🏠 Browse and book home-stays
+- 🏠 Browse and book homestays
 - 📅 Real-time availability calendar
 - 👥 Guest management
 - 💳 Secure payment processing
