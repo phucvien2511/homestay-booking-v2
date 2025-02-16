@@ -1,4 +1,3 @@
-// app/providers.tsx
 "use client";
 
 import { HeroUIProvider } from "@heroui/react";
@@ -12,7 +11,7 @@ declare module "@react-types/shared" {
   }
 }
 
-export function Providers({children}: Readonly<PropsWithChildren>) {
+export function HeroProviders({children}: Readonly<PropsWithChildren>) {
   const router = useRouter();
 
   return <HeroUIProvider navigate={router.push}>{children}</HeroUIProvider>;
