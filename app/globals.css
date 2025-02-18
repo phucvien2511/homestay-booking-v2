@@ -1,88 +1,89 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
+  --background: #140f34;
   --foreground: #171717;
+  --gradient: linear-gradient(90deg, #eeecea 18.57%, #c7e9fc 85%);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #140f34;
+    --foreground: #171717;
   }
 }
 
 @font-face {
-  font-family: "Geist";
-  src: url("../public/fonts/Geist/Geist-Black.ttf") format("truetype");
+  font-family: 'Geist';
+  src: url('../public/fonts/Geist/Geist-Black.ttf') format('truetype');
   font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Geist";
-  src: url("../public/fonts/Geist/Geist-ExtraBold.ttf") format("truetype");
+  font-family: 'Geist';
+  src: url('../public/fonts/Geist/Geist-ExtraBold.ttf') format('truetype');
   font-weight: bolder;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Geist";
-  src: url("../public/fonts/Geist/Geist-Black.ttf") format("truetype");
+  font-family: 'Geist';
+  src: url('../public/fonts/Geist/Geist-Black.ttf') format('truetype');
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Geist";
-  src: url("../public/fonts/Geist/Geist-Regular.ttf") format("truetype");
+  font-family: 'Geist';
+  src: url('../public/fonts/Geist/Geist-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Geist";
-  src: url("../public/fonts/Geist/Geist-Medium.ttf") format("truetype");
+  font-family: 'Geist';
+  src: url('../public/fonts/Geist/Geist-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Geist";
-  src: url("../public/fonts/Geist/Geist-ExtraLight.ttf") format("truetype");
+  font-family: 'Geist';
+  src: url('../public/fonts/Geist/Geist-ExtraLight.ttf') format('truetype');
   font-weight: 200;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Geist";
-  src: url("../public/fonts/Geist/Geist-Light.ttf") format("truetype");
+  font-family: 'Geist';
+  src: url('../public/fonts/Geist/Geist-Light.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Geist";
-  src: url("../public/fonts/Geist/Geist-SemiBold.ttf") format("truetype");
+  font-family: 'Geist';
+  src: url('../public/fonts/Geist/Geist-SemiBold.ttf') format('truetype');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Geist";
-  src: url("../public/fonts/Geist/Geist-Thin.ttf") format("truetype");
+  font-family: 'Geist';
+  src: url('../public/fonts/Geist/Geist-Thin.ttf') format('truetype');
   font-weight: 100;
   font-style: normal;
   font-display: swap;
@@ -94,11 +95,11 @@ body {
 }
 
 .geist {
-  font-family: "Geist" !important;
+  font-family: 'Geist' !important;
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #3DBDB7 0%, #6B42D8 100%);
+  background: var(--gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -107,7 +108,7 @@ body {
 }
 
 .gradient-bg {
-  background: linear-gradient(90deg, #3DBDB7 0%, #6B42D8 100%);
+  background: var(--gradient);
 }
 
 .nav-link {
@@ -119,8 +120,25 @@ body {
 }
 
 .nav-link:hover {
-  background: linear-gradient(90deg, #3DBDB7 0%, #6B42D8 100%);
+  background: var(--gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
+}
+
+.transition-start {
+  opacity: 0;
+  transform: translateY(32px);
+  animation: transitionStart 1s linear forwards;
+}
+
+@keyframes transitionStart {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

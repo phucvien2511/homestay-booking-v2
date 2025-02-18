@@ -18,22 +18,12 @@ import background9 from '@/public/images/backgrounds/background9.jpg';
 import { randomNumberInRange } from '@/utils/helper';
 import Image from 'next/image';
 import { useEffect, useMemo, useState } from 'react';
-
-const NavLink = ({
-  href,
-  children,
-}: {
-  href: string;
-  children: React.ReactNode;
-}) => (
-  <a
-    href={href}
-    className="nav-link text-lg font-semibold hover:gradient-text transition-all"
-  >
-    {children}
-  </a>
-);
-
+import Header from '@/components/LandingPage/Header';
+import AppButton from '@/components/common/AppButton';
+import homestay1 from '@/assets/images/homestays/homestay1.jpg';
+import homestay3 from '@/assets/images/homestays/homestay3.jpg';
+import homestay4 from '@/assets/images/homestays/homestay4.jpg';
+import FeaturedCard from '@/components/LandingPage/FeaturedCard';
 const Home = () => {
   const [bgIndex, setBgIndex] = useState<number>(0);
   const backgroundImages = useMemo(
@@ -66,44 +56,30 @@ const Home = () => {
       clearInterval(interval);
     };
   }, [backgroundImages.length]);
-
+  const scrollTo = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
   return (
-    <main className="min-h-screen">
-      {/* Header/Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 p-6 flex justify-between items-center text-white backdrop-blur-sm bg-black/10">
-        <div className="flex items-center">
-          <Image src="/logo.png" alt="SHSC Homestay" width={40} height={40} />
-          <span className="ml-2 text-xl font-bold gradient-text">
-            SHSC Homestay
-          </span>
-        </div>
-        <div className="flex gap-8">
-          <NavLink href="/">Home</NavLink>
-          <NavLink href="/booking">Booking</NavLink>
-          <NavLink href="/management">Management</NavLink>
-          <NavLink href="/history">History</NavLink>
-          <NavLink href="/marketplace">Marketplace</NavLink>
-          <button className="px-6 py-2 gradient-bg text-white rounded-lg text-lg font-semibold hover:opacity-90 transition-all">
-            Book Now
-          </button>
-        </div>
-      </nav>
-
+    <main className="min-h-screen bg-[#140F34]">
+      <Header />
       {/* Hero Section with Background */}
-      <section className="relative h-screen">
+      <section className="relative h-screen w-full">
         {/* Background image with overlay */}
         <Image
           priority={bgIndex === 0}
           src={backgroundImages[bgIndex]}
           alt="Background"
-          className="absolute top-0 left-0 w-full h-full object-cover"
+          className="absolute top-0 left-0 size-full object-cover"
           fill
         />
-        <div className="absolute top-0 left-0 w-full h-full bg-black/40" />
+        <div className="absolute top-0 left-0 size-full bg-black/60" />
 
         {/* Hero Content */}
-        <div className="relative z-10 h-full flex flex-col justify-center px-4 text-white">
-          <div className="container mx-auto">
+        <div className="relative h-full flex flex-col justify-center px-4 text-white">
+          <div className="container mx-auto transition-start">
             <div className="max-w-3xl space-y-6">
               <p className="text-lg gradient-text">SHSC HOMESTAY TRAVELS</p>
               <h1 className="text-6xl font-bold leading-tight">
@@ -116,62 +92,64 @@ const Home = () => {
                 <br />
                 Travel with confidence - Your adventure starts here
               </p>
-              <button className="px-8 py-4 gradient-bg text-white rounded-lg text-lg font-semibold hover:opacity-90 transition-all">
-                Explore Homestays
-              </button>
+              <AppButton
+                text="Explore Homestays"
+                onClick={() => scrollTo('featured')}
+                className="px-8 py-4 text-lg text-black"
+              />
             </div>
           </div>
         </div>
       </section>
 
       {/* Featured Properties Section */}
-      <section className="py-16 bg-white">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-semibold mb-8">Featured Homestays</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Property Card 1 */}
-            <div className="bg-white rounded-xl overflow-hidden shadow-lg">
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">
-                  Cozy Mountain Retreat
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Perfect for nature lovers and peaceful getaways
-                </p>
-                <div className="flex justify-between items-center">
-                  <span className="text-xl font-bold">$85/night</span>
-                  <button className="px-4 py-2 bg-primary text-white rounded-lg">
-                    Book Now
-                  </button>
-                </div>
-              </div>
+      <section
+        id="featured"
+        className="min-h-screen flex items-center justify-center"
+      >
+        <div className="container mx-auto">
+          <h2 className="gradient-text text-4xl font-bold mb-8">
+            Featured Homestays
+            <div className="mt-3 text-base font-normal text-gray-400">
+              Check out daily special offers from SHSC. Save cost and enjoy your
+              wonderful trip.
             </div>
+          </h2>
 
-            {/* Property Card 2 */}
-            <div className="bg-white rounded-xl overflow-hidden shadow-lg">
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">
-                  Beachside Family Home
-                </h3>
-                <p className="text-gray-600 mb-4">
-                  Spacious accommodation with ocean views
-                </p>
-                <div className="flex justify-between items-center">
-                  <span className="text-xl font-bold">$120/night</span>
-                  <button className="px-4 py-2 bg-primary text-white rounded-lg">
-                    Book Now
-                  </button>
-                </div>
-              </div>
-            </div>
+          <div className="flex items-stretch gap-6 justify-between">
+            <FeaturedCard
+              title="Terracotta Villa"
+              description="Modern villa with a private accommodation"
+              image={homestay3}
+              rating={4.9}
+              price={129}
+              discountPrice={69}
+              isHot
+            />
+            <FeaturedCard
+              title="Beachside Family Home"
+              description="Spacious accommodation with ocean views"
+              image={homestay1}
+              rating={4.4}
+              price={59}
+              discountPrice={39}
+            />
+            <FeaturedCard
+              title="Cozy Mountain Retreat"
+              description="Perfect for nature lovers and peaceful getaways"
+              image={homestay4}
+              rating={4.8}
+              price={85}
+              discountPrice={55}
+            />
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 text-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl text-center font-semibold mb-12">
+          <h2 className="gradient-text text-4xl font-bold mb-8 text-center">
             Why Choose Our Homestays
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -189,7 +167,7 @@ const Home = () => {
               <h3 className="text-xl font-semibold mb-2">
                 Authentic Experience
               </h3>
-              <p className="text-gray-600">
+              <p className="opacity-55">
                 Live like a local with carefully selected host families
               </p>
             </div>
@@ -206,7 +184,7 @@ const Home = () => {
                 />
               </div>
               <h3 className="text-xl font-semibold mb-2">Verified Hosts</h3>
-              <p className="text-gray-600">
+              <p className="opacity-55">
                 All our hosts are thoroughly vetted for your safety
               </p>
             </div>
@@ -223,7 +201,7 @@ const Home = () => {
                 />
               </div>
               <h3 className="text-xl font-semibold mb-2">24/7 Support</h3>
-              <p className="text-gray-600">
+              <p className="opacity-55">
                 Round-the-clock assistance for peace of mind
               </p>
             </div>
