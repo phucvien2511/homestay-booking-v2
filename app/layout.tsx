@@ -15,7 +15,6 @@ export default function RootLayout({ children }: Readonly<PropsWithChildren>) {
     <html lang="en">
       <body className="geist antialiased">
         <HeroProviders>
-          <Header />
           {children}
           <Footer />
         </HeroProviders>

@@ -24,6 +24,9 @@ import homestay1 from '@/assets/images/homestays/homestay1.jpg';
 import homestay3 from '@/assets/images/homestays/homestay3.jpg';
 import homestay4 from '@/assets/images/homestays/homestay4.jpg';
 import FeaturedCard from '@/components/LandingPage/FeaturedCard';
+import ReviewCard from '@/components/LandingPage/ReviewCard';
+import Marquee from 'react-fast-marquee';
+import BrandCard from '@/components/LandingPage/BrandCard';
 const Home = () => {
   const [bgIndex, setBgIndex] = useState<number>(0);
   const backgroundImages = useMemo(
@@ -149,62 +152,60 @@ const Home = () => {
       {/* Features Section */}
       <section className="py-16 text-white">
         <div className="container mx-auto px-4">
-          <h2 className="gradient-text text-4xl font-bold mb-8 text-center">
-            Why Choose Our Homestays
+          <h2 className="gradient-text text-4xl font-bold mb-4 text-center">
+            Why choose our service
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Feature 1 */}
-            <div className="text-center">
-              <div className="mb-4">
-                <Image
-                  src="/icons/home.svg"
-                  alt="Authentic Experience"
-                  width={48}
-                  height={48}
-                  className="mx-auto"
-                />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">
-                Authentic Experience
-              </h3>
-              <p className="opacity-55">
-                Live like a local with carefully selected host families
-              </p>
-            </div>
-
-            {/* Feature 2 */}
-            <div className="text-center">
-              <div className="mb-4">
-                <Image
-                  src="/icons/shield.svg"
-                  alt="Verified Hosts"
-                  width={48}
-                  height={48}
-                  className="mx-auto"
-                />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Verified Hosts</h3>
-              <p className="opacity-55">
-                All our hosts are thoroughly vetted for your safety
-              </p>
-            </div>
-
-            {/* Feature 3 */}
-            <div className="text-center">
-              <div className="mb-4">
-                <Image
-                  src="/icons/support.svg"
-                  alt="24/7 Support"
-                  width={48}
-                  height={48}
-                  className="mx-auto"
-                />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">24/7 Support</h3>
-              <p className="opacity-55">
-                Round-the-clock assistance for peace of mind
-              </p>
-            </div>
+          <div className="text-white/40 text-center text-xl">
+            Real users show real love for SDSC
+          </div>
+          <div className="space-y-4 my-8">
+            <Marquee>
+              <ReviewCard />
+              <ReviewCard />
+              <ReviewCard />
+              <ReviewCard />
+              <ReviewCard />
+              <ReviewCard />
+            </Marquee>
+            <Marquee direction="right">
+              <ReviewCard />
+              <ReviewCard />
+              <ReviewCard />
+              <ReviewCard />
+              <ReviewCard />
+              <ReviewCard />
+            </Marquee>
+          </div>
+          <div className="text-white/40 text-center text-xl">
+            Backed by the best in the industry
+          </div>
+          <div className="flex items-center justify-center gap-4 flex-wrap my-6">
+            <BrandCard></BrandCard>
+            <BrandCard></BrandCard>
+            <BrandCard></BrandCard>
+            <BrandCard></BrandCard>
+            <BrandCard></BrandCard>
+            <BrandCard></BrandCard>
+            <BrandCard></BrandCard>
+            <BrandCard></BrandCard>
+            <BrandCard></BrandCard>
+            <BrandCard></BrandCard>
+            <BrandCard></BrandCard>
+            <BrandCard></BrandCard>
+            <BrandCard></BrandCard>
+            <BrandCard></BrandCard>
+            <BrandCard></BrandCard>
+            <BrandCard></BrandCard>
+            <BrandCard></BrandCard>
+            <BrandCard></BrandCard>
+            <BrandCard></BrandCard>
+            <BrandCard></BrandCard>
+            <BrandCard></BrandCard>
+            <BrandCard></BrandCard>
+            <BrandCard></BrandCard>
+            <BrandCard></BrandCard>
+            <BrandCard></BrandCard>
+            <BrandCard></BrandCard>
           </div>
         </div>
       </section>
